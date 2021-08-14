@@ -14,5 +14,11 @@ export class User extends Model {
     age: number
     @HasMany(() => Profile)
     profiles: Profile[];
+
+
+    static findByFirstName = async (firstName: string): Promise<User | null> => {
+        return User.findOne({where: {firstName}});
+    }
 }
+
 
